@@ -1,19 +1,26 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import OverviewPage from "./containers/Overview/OverviewPage";
+import OverviewPage from "./containers/Audit/AuditPage";
+import DashboardSidebar from "./common/DashboardSidebar/DashboardSidebar";
 
 import ErrorBoundary from "./common/ErrorBoundary";
+import "./App.scss";
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <ErrorBoundary>
-        <Switch>
-          <Route exact path="/" component={OverviewPage} />
-        </Switch>
-      </ErrorBoundary>
-    </Router>
+    <ErrorBoundary>
+      <div className="dashboard-body">
+        <DashboardSidebar />
+        <section id="content-area">
+          <Router>
+            <Switch>
+              <Route exact path="/" component={OverviewPage} />
+            </Switch>
+          </Router>
+        </section>
+      </div>
+    </ErrorBoundary>
   );
 };
 

@@ -1,0 +1,105 @@
+#side-menu {
+  max-width: 280px;
+  width: 280px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #ffffff;
+  box-shadow: 4px 0px 24px #e3e3e3;
+  padding-top: 70px;
+
+  .user-details-info {
+    padding-top: 15px;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+
+    p {
+      margin: 0px;
+    }
+    .user-name {
+      font-size: 18px;
+      color: #5f5c7f;
+    }
+
+    .user-role {
+      font-size: 13px;
+      color: #8a94a6;
+    }
+
+    small {
+      font-size: 12px;
+      color: #acafb1;
+    }
+  }
+
+  .avatar {
+    display: flex;
+    justify-content: center;
+
+    .avatar-frame {
+      display: inline-block;
+      border-radius: 20px;
+      padding: 10px;
+      border: 2px solid #7396fd;
+    }
+  }
+
+  nav {
+    padding-top: 40px;
+    a {
+      display: block;
+      color: #8a94a6;
+      text-decoration: none;
+      padding: 15px 30px;
+      font-weight: 300;
+      transition: all 0.3s ease-in-out;
+
+      img {
+        padding-right: 25px;
+        height: 20px;
+      }
+
+      &:hover {
+        border-left: 5px solid #0c66ff;
+        border-radius: 0px 0px 0px 0px;
+        padding: 15px 30px 15px 25px;
+        font-style: normal;
+        line-height: 14px;
+        /* identical to box height, or 117% */
+
+        color: #43536f;
+
+        .fas {
+          color: #282639;
+        }
+
+        svg g path {
+          fill: #182c4f;
+        }
+      }
+
+      .fas {
+        color: #f4f6f9;
+        font-size: 1.4rem;
+        margin-right: 0.8rem;
+        display: inline-block;
+        width: 30px;
+        position: relative;
+        top: 2px;
+      }
+
+      &.active {
+        font-weight: bold;
+        color: #43536f;
+        border-left: 5px solid #0c66ff;
+        border-radius: 0px 0px 0px 0px;
+        padding: 15px 30px 15px 25px;
+
+        .fas {
+          color: #282639;
+        }
+      }
+    }
+  }
+}
