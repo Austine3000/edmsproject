@@ -1,5 +1,9 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-const reducers = combineReducers({});
+import auditLog from '../containers/Audit/redux/reducer';
+
+const reducers = combineReducers({
+  auditLog
+});
 
 export default reducers;

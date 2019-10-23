@@ -1,13 +1,13 @@
-import React from "react";
-import { H2, H3 } from "../../components/Headings/Headings";
+import React from 'react';
+import { H2, H3 } from '../../components/Headings/Headings';
 import {
   ContainerWrapper,
   ContainerWrapperCard
-} from "../../components/ContainerWrapper/ContainerWrapper";
-import { TH, TD, TABLE, THEAD } from "../../components/Table/Table";
-import { Label, Button } from "../../components/Form/Form";
+} from '../../components/ContainerWrapper/ContainerWrapper';
+import { TH, TD, TABLE, THEAD } from '../../components/Table/Table';
+import { Label, Button } from '../../components/Form/Form';
 
-import "./Audit.scss";
+import './Audit.scss';
 
 export default function OverviewContent(props: any): JSX.Element {
   return (
@@ -43,19 +43,21 @@ export default function OverviewContent(props: any): JSX.Element {
                     </tr>
                   </THEAD>
                   <tbody>
-                    <tr>
-                      <TD>Oct 12, 13:09 Pm</TD>
-                      <TD>Delete file</TD>
-                      <TD>Success</TD>
-                      <TD className="audit-table-user">
-                        <img src="assets/user.svg" alt="user-img" />
-                        <div className="audit-user-details">
-                          <p>Segun Oni</p>
-                          <small>Accounting</small>
-                        </div>
-                      </TD>
-                      <TD className="audit-details">Details</TD>
-                    </tr>
+                    {props.audits.map((audit: any) => (
+                      <tr>
+                        <TD>{audit.eventTime}</TD>
+                        <TD>{audit.eventType}</TD>
+                        <TD>{audit.status}</TD>
+                        <TD className="audit-table-user">
+                          <img src="assets/user.svg" alt="user-img" />
+                          <div className="audit-user-details">
+                            <p>{audit.user.name}</p>
+                            <small>{audit.user.department}</small>
+                          </div>
+                        </TD>
+                        <TD className="audit-details">Details</TD>
+                      </tr>
+                    ))}
                   </tbody>
                 </TABLE>
               </div>

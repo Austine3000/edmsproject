@@ -1,12 +1,37 @@
-import React from "react";
-const OverviewContent = React.lazy(() => import("./AuditContent"));
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
-export default function OverviewPage(props: any): JSX.Element {
+import { requestAduitLogData } from './redux/actions';
+const AuditContent = React.lazy(() => import('./AuditContent'));
+
+function AuditPage(props: any): JSX.Element {
+  const { getAuditHandler, audits } = props;
+
+  useEffect(() => {
+    getAuditHandler();
+  }, [getAuditHandler]);
   return (
     <React.Fragment>
       <React.Suspense fallback={<div>Loading...</div>}>
-        <OverviewContent />
+        <AuditContent audits={audits} />
       </React.Suspense>
     </React.Fragment>
   );
 }
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getAuditHandler: () => dispatch(requestAduitLogData())
+  };
+};
+
+const mapStateToProps = (state: any) => {
+  return {
+    audits: state.auditLog.data
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AuditPage);
