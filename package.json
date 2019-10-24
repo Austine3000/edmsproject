@@ -20,6 +20,7 @@
     "typescript": "3.6.4"
   },
   "scripts": {
+    "postinstall": "tsc",
     "start": "react-scripts start",
     "api": "json-server -p 4000 db.json",
     "server:start": "yarn api & yarn start",
