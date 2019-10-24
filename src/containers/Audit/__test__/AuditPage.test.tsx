@@ -9,7 +9,7 @@ import AuditPage from '../AuditPage';
 const mockStore = configureStore([]);
 
 describe('My test for audit page', () => {
-  let store;
+  let store: any;
 
   beforeEach(() => {
     store = mockStore({
