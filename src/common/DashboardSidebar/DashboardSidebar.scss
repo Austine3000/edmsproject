@@ -1,7 +1,8 @@
 #side-menu {
   max-width: 280px;
   width: 280px;
-  position: absolute;
+  position: fixed;
+  overflow-x: hidden;
   top: 0;
   bottom: 0;
   background: #ffffff;

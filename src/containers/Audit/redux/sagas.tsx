@@ -4,7 +4,7 @@ import { receiveAduitLogData } from './actions';
 import { REQUEST_AUDIT_LOG_DATA, SEARCH_AUDIT_LOG_DATA } from './types';
 import { fetchAuditLogData, fetchAuditSearchData } from './api';
 
-function* getAuditLogData() {
+export function* getAuditLogData() {
   try {
     // do api call
     const data = yield call(fetchAuditLogData);
@@ -14,8 +14,7 @@ function* getAuditLogData() {
   }
 }
 
-function* searchAuditLog(action: any) {
-  console.log(action);
+export function* searchAuditLog(action: any) {
   try {
     // do api call
     const data = yield call(fetchAuditSearchData, action.data);

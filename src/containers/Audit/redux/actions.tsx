@@ -4,13 +4,19 @@ import {
   SEARCH_AUDIT_LOG_DATA
 } from './types';
 
-export const requestAduitLogData = () => ({ type: REQUEST_AUDIT_LOG_DATA });
-export const receiveAduitLogData = (data: any) => ({
-  type: RECEIVE_AUDIT_LOG_DATA,
-  data
-});
+export const requestAduitLogData = () => {
+  return { type: REQUEST_AUDIT_LOG_DATA };
+};
+export const receiveAduitLogData = (data: any) => {
+  return {
+    type: RECEIVE_AUDIT_LOG_DATA,
+    data
+  };
+};
 
-export const searchAuditLogData = (data: any) => ({
-  type: SEARCH_AUDIT_LOG_DATA,
-  data
-});
+export const searchAuditLogData = (data: any) => {
+  return {
+    type: SEARCH_AUDIT_LOG_DATA,
+    data
+  };
+};
