@@ -20,7 +20,7 @@
     "typescript": "3.6.4"
   },
   "scripts": {
-    "start": "react-scripts start & yarn api",
+    "start": "react-scripts start",
     "api": "json-server -p 4000 db.json",
     "server:start": "yarn api & yarn start",
     "build": "react-scripts build",
