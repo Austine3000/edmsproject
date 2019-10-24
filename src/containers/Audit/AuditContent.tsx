@@ -44,7 +44,7 @@ export default function OverviewContent(props: any): JSX.Element {
                   </THEAD>
                   <tbody>
                     {props.audits.map((audit: any) => (
-                      <tr>
+                      <tr key={audit.id}>
                         <TD>{audit.eventTime}</TD>
                         <TD>{audit.eventType}</TD>
                         <TD>{audit.status}</TD>
@@ -77,6 +77,9 @@ export default function OverviewContent(props: any): JSX.Element {
                   <div className="col-sm-9">
                     <input
                       type="text"
+                      name="department"
+                      value={props.auditSearch.department}
+                      onChange={props.handleChange}
                       className="form-control"
                       id="inputDepartment"
                       placeholder="Enter department"
@@ -93,6 +96,9 @@ export default function OverviewContent(props: any): JSX.Element {
                   <div className="col-sm-9">
                     <input
                       type="text"
+                      name="user"
+                      value={props.auditSearch.user}
+                      onChange={props.handleChange}
                       className="form-control"
                       id="inputUser"
                       placeholder="Enter user"
@@ -109,6 +115,9 @@ export default function OverviewContent(props: any): JSX.Element {
                   <div className="col-sm-9">
                     <input
                       type="text"
+                      name="status"
+                      value={props.auditSearch.status}
+                      onChange={props.handleChange}
                       className="form-control"
                       id="inputStatus"
                       placeholder="Enter status"
@@ -126,10 +135,12 @@ export default function OverviewContent(props: any): JSX.Element {
                     <div className="row">
                       <div className="col-sm-5">
                         <input
-                          type="text"
+                          type="date"
+                          name="startDate"
+                          value={props.auditSearch.startDate}
+                          onChange={props.handleChange}
                           className="form-control"
                           id="inputDate"
-                          placeholder="Enter date"
                         />
                       </div>
                       <div className="col-sm-2 paragraph-center">
@@ -138,18 +149,30 @@ export default function OverviewContent(props: any): JSX.Element {
 
                       <div className="col-sm-5">
                         <input
-                          type="text"
+                          type="date"
+                          name="endDate"
+                          value={props.auditSearch.endDate}
+                          onChange={props.handleChange}
                           className="form-control"
                           id="inputDate"
-                          placeholder="Enter date"
                         />
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="audit-button">
-                  <Button className="audit-button-clear">Clear</Button>
-                  <Button className="audit-button-filter">Filter</Button>
+                  <Button
+                    className="audit-button-clear"
+                    onClick={props.handleClear}
+                  >
+                    Clear
+                  </Button>
+                  <Button
+                    className="audit-button-filter"
+                    onClick={props.handleSubmit}
+                  >
+                    Filter
+                  </Button>
                 </div>
               </form>
             </ContainerWrapperCard>
