@@ -6,7 +6,7 @@ import { getAuditLogData, searchAuditLog } from '../redux/sagas';
 import * as api from '../redux/api';
 
 test('Testing get audit log data', async () => {
-  const dispatchActions = [];
+  const dispatchActions: any = [];
 
   const mockedAudit = [
     {
@@ -24,7 +24,7 @@ test('Testing get audit log data', async () => {
   api.fetchAuditLogData = jest.fn(() => Promise.resolve(mockedAudit));
 
   const fakeStore = {
-    dispatch: action => dispatchActions.push(action)
+    dispatch: (action: any) => dispatchActions.push(action)
   };
 
   await runSaga(fakeStore, getAuditLogData).done;
@@ -34,7 +34,7 @@ test('Testing get audit log data', async () => {
 });
 
 test('that the search data is returned', async () => {
-  const dispatchActions = [];
+  const dispatchActions: any = [];
 
   const action = {
     department: 'Accounting',
@@ -58,7 +58,7 @@ test('that the search data is returned', async () => {
   api.fetchAuditSearchData = jest.fn(() => Promise.resolve(mockedAudit));
 
   const fakeStore = {
-    dispatch: action => dispatchActions.push(action)
+    dispatch: (action: any) => dispatchActions.push(action)
   };
 
   await runSaga(fakeStore, searchAuditLog, action).done;
