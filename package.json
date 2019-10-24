@@ -21,7 +21,7 @@
   },
   "scripts": {
     "postinstall": "tsc",
-    "heroku-postbuild": "cd edmsproject/ & npm install & npm install --only=dev --no-shrinkwrap & npm run build",
+    "heroku-postbuild": "npm run build",
     "start": "node ./build/index.js & npm run api",
     "dev": "react-scripts start & npm run api",
     "api": "json-server -p 4000 db.json",
