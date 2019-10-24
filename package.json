@@ -23,7 +23,6 @@
     "postinstall": "tsc",
     "start": "react-scripts start & npm run api",
     "api": "json-server -p 4000 db.json",
-    "server:start": "yarn api & yarn start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
