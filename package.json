@@ -21,9 +21,7 @@
   },
   "scripts": {
     "postinstall": "tsc",
-    "heroku-postbuild": "npm run build",
-    "start": "node ./build/index.html & npm run api",
-    "dev": "react-scripts start & npm run api",
+    "start": "react-scripts start & npm run api",
     "api": "json-server -p 4000 db.json",
     "server:start": "yarn api & yarn start",
     "build": "react-scripts build",
