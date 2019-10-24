@@ -6,7 +6,7 @@ export interface ISearch {
   status: String;
 }
 
-export const fetchAuditLogData = async () => {
+export let fetchAuditLogData = async () => {
   try {
     const response = await AxiosWrapper.get('/auditLog');
     return response;
@@ -15,7 +15,7 @@ export const fetchAuditLogData = async () => {
   }
 };
 
-export const fetchAuditSearchData = async (data: ISearch) => {
+export let fetchAuditSearchData = async (data: ISearch) => {
   try {
     const response = await AxiosWrapper.get(
       `/auditLog?user.department=${data.department}&user.name=${data.user}&status=${data.status}`

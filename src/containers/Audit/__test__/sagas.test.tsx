@@ -21,15 +21,15 @@ test('Testing get audit log data', async () => {
       ipAddress: '193.87.934.1'
     }
   ];
-  api.fetchAuditLogData = jest.fn(() => Promise.resolve(mockedAudit));
+  (api.fetchAuditLogData as any) = jest.fn(() => Promise.resolve(mockedAudit));
 
   const fakeStore = {
     dispatch: (action: any) => dispatchActions.push(action)
   };
 
-  await runSaga(fakeStore, getAuditLogData).done;
+  await (runSaga(fakeStore, getAuditLogData) as any).done;
 
-  expect(api.fetchAuditLogData.mock.calls.length).toBe(1);
+  expect((api.fetchAuditLogData as any).mock.calls.length).toBe(1);
   expect(dispatchActions).toContainEqual(receiveAduitLogData(mockedAudit));
 });
 
@@ -55,14 +55,17 @@ test('that the search data is returned', async () => {
       ipAddress: '193.87.934.1'
     }
   ];
-  api.fetchAuditSearchData = jest.fn(() => Promise.resolve(mockedAudit));
+
+  (api.fetchAuditSearchData as any) = jest.fn(() =>
+    Promise.resolve(mockedAudit)
+  );
 
   const fakeStore = {
     dispatch: (action: any) => dispatchActions.push(action)
   };
 
-  await runSaga(fakeStore, searchAuditLog, action).done;
+  await (runSaga(fakeStore, searchAuditLog, action) as any).done;
 
-  expect(api.fetchAuditSearchData.mock.calls.length).toBe(1);
+  expect((api.fetchAuditLogData as any).mock.calls.length).toBe(1);
   expect(dispatchActions).toContainEqual(receiveAduitLogData(mockedAudit));
 });
